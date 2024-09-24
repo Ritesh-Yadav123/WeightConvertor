@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weight Converter</title>
+    <style>
+      h1 {
+        margin-top: 56px;
+        background-color: aqua;
+        text-align: center;
+      }
+      input[type="number"] {
+        margin: 40px;
+      }
+      input[type="number"]::-webkit-outer-spin-button,
+      input[type="number"]::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Weight Converter</h1>
+    <h3>Type a value in the Kilograms field to convert the value to other:</h3>
+    
+    <label for="convert">SELECT THE UNITS</label>
+    <select name="convert" id="convert" onchange="updateConversion()">
+      <option value="kgtograms">kg to Grams</option>
+      <option value="kgtomilligrams">kg to Milligrams</option>
+      <option value="kgtodecagram">kg to Decagrams</option>
+      <option value="kgtohectogram">kg to Hectograms</option>
+      <option value="kgtocentigram">kg to Centigrams</option>
+      <option value="kgtodecigram">kg to Decigrams</option>
+      <option value="kgtotone">kg to Tonnes</option>
+      <option value="kgtoquintal">kg to Quintals</option>
+    </select>
+
+    <input
+      type="number"
+      placeholder="Enter the value in kilograms"
+      id="kg"
+      oninput="convertWeight(this.value)">
+
+    <div id="display">RESULT: <span id="value"></span></div>
+
+    <script>
+      let currentChoice = 'kgtograms';
+
+      function updateConversion() {
+        currentChoice = document.getElementById('convert').value;
+      }
+
+      function convertWeight(value) {
+        switch (currentChoice) {
+          case 'kgtograms':
+            kgtograms(value);
+            break;
+          case 'kgtomilligrams':
+            kgtomilligrams(value);
+            break;
+          case 'kgtodecagram':
+            kgtodecagram(value);
+            break;
+          case 'kgtohectogram':
+            kgtohectogram(value);
+            break;
+          case 'kgtocentigram':
+            kgtocentigram(value);
+            break;
+          case 'kgtodecigram':
+            kgtodecigram(value);
+            break;
+          case 'kgtotone':
+            kgtotone(value);
+            break;
+          case 'kgtoquintal':
+            kgtoquintal(value);
+            break;
+          default:
+            document.getElementById('value').innerHTML = "SORRY, WORKING ON IT";
+            document.getElementById('value').style.color='red';           
+        }
+      }
+
+      function kgtograms(given) {
+        document.getElementById("value").innerHTML = given * 1000;
+      }
+
+      function kgtomilligrams(given) {
+        document.getElementById("value").innerHTML = given * 1000000;
+      }
+
+      function kgtodecagram(given) {
+        document.getElementById("value").innerHTML = given * 100;
+      }
+
+      function kgtohectogram(given) {
+        document.getElementById("value").innerHTML = given * 10;
+      }
+
+      function kgtocentigram(given) {
+        document.getElementById("value").innerHTML = given * 100000;
+      }
+
+      function kgtodecigram(given) {
+        document.getElementById("value").innerHTML = given * 10000;
+      }
+
+      function kgtotone(given) {
+        document.getElementById("value").innerHTML = given / 1000;
+      }
+
+      function kgtoquintal(given) {
+        document.getElementById("value").innerHTML = given / 100;
+      }
+    </script>
+  </body>
+</html>

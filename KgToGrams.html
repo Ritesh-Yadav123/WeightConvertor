@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weight Converter</title>
+    <style>
+        h1 {
+            margin-top: 56px;
+            background-color: aqua;
+            text-align: center;
+        }
+        input[type="number"]{
+            margin: 40px;
+        }
+        input[type="number"]::-webkit-outer-spin-button,
+        input[type="number"]::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Weight Converter</h1>
+    <h3>Type a value in the Kilograms field to convert the value to Grams:</h3>
+    <label for="kg">Kilograms : </label>
+    <input type="number" placeholder="enter the value in killograms" id="kg" oninput="kgtograms(this.value)">
+    <div id="display">GRAMS : <span id="value"></span></div>
+    <script>
+        function kgtograms(given){
+            document.getElementById('value').innerHTML=given*1000;
+
+        }
+    </script>
+</body>
+</html>
